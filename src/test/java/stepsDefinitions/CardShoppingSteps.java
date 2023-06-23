@@ -36,9 +36,19 @@ public class CardShoppingSteps {
     }
 
     @Then("^The button text became: '(.*)'$" )
-    public void buttonChangeText (String text) {
-        String actualMessage = CardShoppingPage.buttonText(text);
-        Assert.assertEquals( text, actualMessage);
+    public void buttonChangeText (String text, DataTable data) {
+        List<String> productList = data.asList();
+
+        for (int i = 0; i < productList.size(); i++) {
+            String buttonText = CardShoppingPage.buttonText(productList.get(i));
+            Assert.assertEquals("the text is wrong: " , text,buttonText);
+        }
     }
 
+    @Then ("The shopping card show the same number of products user have selected: '(.*)'$")
+    public void shoppingCartChangeText(int productNumber){
+        int numberShoppingCard = Integer.parseInt (CardShoppingPage.shoppingCartText());
+        Assert.assertEquals( "valor actual: " + productNumber + "valor esperado: " + numberShoppingCard , numberShoppingCard, numberShoppingCard);
+
+    }
 }

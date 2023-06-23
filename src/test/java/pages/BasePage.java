@@ -13,7 +13,9 @@ public class BasePage {
     public static WebDriver driver;
     protected static WebDriverWait wait;
 
-    static {chromeDriver();}
+    public static void initDriver() {
+        chromeDriver();
+    }
 
     public static void chromeDriver(){
         ChromeOptions options = new ChromeOptions();
@@ -25,5 +27,12 @@ public class BasePage {
     public BasePage(WebDriver driver) {
         BasePage.driver=driver;
         PageFactory.initElements(driver, this);
+    }
+
+    public static void closeBrowser(){
+        if (driver!= null){
+            driver.manage().deleteAllCookies();
+            driver.quit();
+        }
     }
 }
