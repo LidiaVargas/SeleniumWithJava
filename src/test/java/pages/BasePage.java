@@ -10,6 +10,7 @@ import java.time.Duration;
 
 public class BasePage {
 
+
     public static WebDriver driver;
     protected static WebDriverWait wait;
 
@@ -32,7 +33,7 @@ public class BasePage {
     public static void closeBrowser(){
         if (driver!= null){
             driver.manage().deleteAllCookies();
-            driver.quit();
+           // driver.quit();
         }
     }
 }

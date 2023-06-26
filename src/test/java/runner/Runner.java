@@ -6,12 +6,12 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features/Saucedemo.feature",
+        features = "src/test/resources/features/",
         glue = {
                 "stepsDefinitions",
                 "hooks"
         },
-        tags = "@saucedemo",
+        tags = "@orange",
         stepNotifications = true
 
 )
