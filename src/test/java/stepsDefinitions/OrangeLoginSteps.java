@@ -3,6 +3,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import pages.HomePage;
 import pages.LoginPage;
 import pages.OrangeLoginPage;
 import scripts.Commons;
@@ -31,4 +32,10 @@ public class OrangeLoginSteps {
         String logOutText = OrangeLoginPage.logOut();
         Assert.assertEquals("the message its not correct. \n actual message: " + logOutText + "\n expected message: " + logOutTxt, logOutText, logOutTxt);
     }
+
+    @When("^The user go to de side panel$")
+    public void look4Hamburger() {
+        Assert.assertTrue("the hamburger its not there", OrangeLoginPage.lookForHamburger());
+    }
+
 }
