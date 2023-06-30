@@ -7,6 +7,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.BasePage;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
 
 public class Commons extends BasePage {
     public Commons (WebDriver driver){
@@ -17,14 +23,39 @@ public class Commons extends BasePage {
         driver.get(URL);
     }
 
+    ////////////////////////////////////////////////////////////////////////
+    // PROPERTIES METHODS
+    ////////////////////////////////////////////////////////////////////////
+    public static Properties getProperties(String propertiesFileName) {
+        Properties properties = new Properties();
+        try {
+            properties.load(new FileInputStream(propertiesFileName));
+        } catch (FileNotFoundException exception) {
+            Assert.fail("File not found: " + propertiesFileName + ".\n" + exception.getMessage());
+        } catch (IOException exception) {
+            Assert.fail("Exception while reading: " + propertiesFileName + ".\n" + exception.getMessage());
+        }
+        return properties;
+    }
+
+
     ///////////////////////////////////////////////////////////////////////////////////////
     // WEB ELEMENT METHODS
     ///////////////////////////////////////////////////////////////////////////////////////
 
     // FIND ELEMENT
-    public static WebElement findElementByXpath (String xpath){
+    public static WebElement findElementVisibleByXpath(String xpath){
         try {
             return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+        } catch (Exception e){
+            Assert.fail("fail to find element: "+ xpath);
+            return null;
+        }
+    }
+
+    public static WebElement findElementByXpath(String xpath){
+        try {
+            return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
         } catch (Exception e){
             Assert.fail("fail to find element: "+ xpath);
             return null;
@@ -77,5 +108,28 @@ public class Commons extends BasePage {
     }
 
 
+    //NUEVOS APORTES
+    public static WebElement findElementByText(String elementType, String text) {
+        WebElement element;
+        switch (elementType) {
+            case "header3":
+                elementType = "h3";
+                break;
+        }
+        try {
+            return element = findElementByXpath("//" + elementType + "[contains(.,'" + text + "')]");
+        } catch (Exception e) {
+            Assert.fail("Fail to find elements with text: " + text);
+            return null;
+        }
+    }
+
+    public static boolean verifyElementHasText(String elementType, String text) {
+        if (Commons.findElementByText(elementType, text) == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
 }

@@ -11,7 +11,12 @@ import org.junit.runner.RunWith;
                 "stepsDefinitions",
                 "hooks"
         },
-        tags = "@orange",
+        //plugin que me ejecuta el reporte
+        plugin = {
+                "pretty",
+                "html:report/cucumber_html/report.html"
+        },
+        tags = "@newCases",
         stepNotifications = true
 
 )

@@ -15,7 +15,7 @@ Feature: saucedemo login
   Scenario Outline: Login with wrong user and pass
     When The user type username: '<user>' and password: '<pass>'
     And The user click on login button
-    Then Access displays a message: '<message>'
+    And Access displays a message: '<message>'
       #cont+alt+l
     Examples:
       | user          | pass         | message                                                                   |
@@ -24,7 +24,26 @@ Feature: saucedemo login
       | wrong         | wrong        | Epic sadface: Username and password do not match any user in this service |
       |               | secret_sauce | Epic sadface: Username is required                                        |
       | standard_user |              | Epic sadface: Password is required                                        |
-      |               |              | Epic sadface: Username is required                                        |
+      |               |              | Epic sadface: Username is required |
+
+
+
+  @newCases
+  Scenario Outline: Login with wrong user and pass: <errorMessage>
+    When Mark scenario is pending when the driver is 'chrome'
+    And The user type username: '<user>' and password: '<pass>'
+    And The user click on login button
+    Then a 'header3' is displayed with the text '<errorMessage>'
+    #header3 hace referencia al método de Commons de "nuevos aportes"
+
+    Examples:
+      | user        | pass         | errorMessage                                              |
+      | locked_out_user | secret_sauce | @PROPERTY_SAUCE_DEMO_LOGIN_WITH_LOCKED_USER_ERROR_MESSAGE |
+      |                 |              | @PROPERTY_SAUCE_DEMO_LOGIN_WITH_EMPTY_USERNAME_FIELD      |
+      | standard_user   |              | @PROPERTY_SAUCE_DEMO_LOGIN_WITH_EMPTY_PASSWORD_FIELD      |
+
+
+
 
   @unsuccessful2
   Scenario Outline: Change the background de color

@@ -12,10 +12,10 @@ import java.util.ArrayList;
 
 
 public class LoginSteps {
-    //@Given("^The user visit the '(.*)'$")
-   // public void navigateTo (String URL){
-     //   Commons.navigateTo(URL);
-   // }
+    @Given("^The user visit the '(.*)'$")
+   public void navigateTo (String URL){
+        Commons.navigateTo(URL);
+    }
 
     //alt+enter
     @When("^The user type username: '(.*)' and password: '(.*)'$")

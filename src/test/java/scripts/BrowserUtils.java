@@ -17,10 +17,5 @@ public class BrowserUtils {
         driver.manage().window().maximize();
         return driver;
     }
-    public static void screenSize(){
-        Toolkit t = Toolkit.getDefaultToolkit();
-        int width = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
-        int height = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
-        System.out.println("width: " + width  + "  height: " +  height);
-    }
+
 }

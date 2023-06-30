@@ -6,13 +6,11 @@ Feature: orange login
     When The orange user type username: 'Admin' and password: 'admin123'
     And The orange user click on login button
     And The orange user click on user count button
-    Then The orange user is logged 'Cerrar sesión'
+    Then The orange user is logged
 
 
   @successful @sidePanel
     Scenario: The user click on the side panel elements
-    #And Verify if the side panel is displayed
-  And The user go to de side panel
-    #And The user click over some element
-    #Then The element take the user to the corresponding URL
-
+    And The user click over hamburger button
+    And Verify if the side panel is visible
+    And The user click over all panel elements

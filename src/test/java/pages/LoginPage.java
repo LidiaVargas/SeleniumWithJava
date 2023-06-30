@@ -21,30 +21,30 @@ public class LoginPage  {
 
 
     public static void enterUser (String user){
-        WebElement username = Commons.findElementByXpath(USERNAME_INPUT);
+        WebElement username = Commons.findElementVisibleByXpath(USERNAME_INPUT);
         Commons.setText(username, user);
     }
     public static void enterPass (String pass){
-        WebElement password = Commons.findElementByXpath(PASSWORD_INPUT);
+        WebElement password = Commons.findElementVisibleByXpath(PASSWORD_INPUT);
         Commons.setText(password, pass);
     }
     public static void clickLoginButton (){
-        WebElement loginButton = Commons.findElementByXpath(LOGIN_BUTTON);
+        WebElement loginButton = Commons.findElementVisibleByXpath(LOGIN_BUTTON);
         Commons.click(loginButton);
     }
 
     public static String showErrorMessage () {
-        WebElement errorMessage = Commons.findElementByXpath(ERROR_MESSAGE_H3);
+        WebElement errorMessage = Commons.findElementVisibleByXpath(ERROR_MESSAGE_H3);
         return Commons.getText(errorMessage);
     }
 
     public static String backgroundColor (){
-        WebElement errorContainerColor = Commons.findElementByXpath(ERROR_MESSAGE_COLOR_CONTAINER);
+        WebElement errorContainerColor = Commons.findElementVisibleByXpath(ERROR_MESSAGE_COLOR_CONTAINER);
         return Commons.getCssAttribute(errorContainerColor, "background-color");
     }
 
     public static String textColor (){
-        WebElement errorTextColor = Commons.findElementByXpath(ERROR_MESSAGE_X);
+        WebElement errorTextColor = Commons.findElementVisibleByXpath(ERROR_MESSAGE_X);
         return Commons.getCssAttribute(errorTextColor, "color");
     }
 
