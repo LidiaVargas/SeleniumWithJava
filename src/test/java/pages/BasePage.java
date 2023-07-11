@@ -24,7 +24,7 @@ public class BasePage {
     public static WebDriver driver;
     protected static WebDriverWait wait;
 
-    //SELECTOR DE DRIVER (SE LE PASA POR RUN TEST, EDIT CONFIGURATION EL PARÁ 6METRO)
+    //SELECTOR DE DRIVER (SE LE PASA POR RUN TEST, EDIT CONFIGURATION EL PARa 6METRO)
     public static void initDriver() {
         switch (WEB_DRIVER){
             case "chrome":

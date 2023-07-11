@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
                 "pretty",
                 "html:report/cucumber_html/report.html"
         },
-        tags = "@newCases",
+        tags = "@login_Again",
         stepNotifications = true
 
 )

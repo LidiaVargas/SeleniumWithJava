@@ -9,8 +9,4 @@ Feature: orange login
     Then The orange user is logged
 
 
-  @successful @sidePanel
-    Scenario: The user click on the side panel elements
-    And The user click over hamburger button
-    And Verify if the side panel is visible
-    And The user click over all panel elements
+

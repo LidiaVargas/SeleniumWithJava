@@ -52,24 +52,6 @@ public class OrangeLoginPage {
         return Commons.elementIsDisplayed(logoDisplay);
     }
 
-    public static void clickOnHamburger() {
-        WebElement hamburgerClicked = Commons.findElementVisibleByXpath(HAMBURGER);
-        Commons.click(hamburgerClicked);
-    }
-
-    public static Boolean visibleSidePanel() {
-        WebElement sidePanel = Commons.findElementVisibleByXpath(SIDE_PANEL);
-        return Commons.elementIsDisplayed(sidePanel);
-    }
-
-    public static List<WebElement> listItems() {
-        WebElement list = Commons.findElementVisibleByXpath(LI_ELEMENTS_SIDE_PANEL);
-        return list.findElements(new By.ByTagName("li"));
-    }
-
-    public static void clickListItem(int number){
-        Commons.click( Commons.findElementVisibleByXpath(LI_ELEMENTS_SIDE_PANEL_BY_POSITION.formatted(number)));
-    }
 
 
 }
