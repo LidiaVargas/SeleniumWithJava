@@ -1,8 +1,12 @@
 package stepsDefinitions;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.WebElement;
 import pages.LoginPage;
 import pages.OrangeHomePage;
+
+import java.util.List;
 
 
 public class HomeOrangeSteps {
@@ -23,12 +27,20 @@ public class HomeOrangeSteps {
     }
 
     @When("^Check by id=app$")
-    public static void checkById (){
+    public static void checkById() {
         OrangeHomePage.getElementById();
     }
 
-    @When("^Check by tagName div who has img first child$")
-    public static void checkByTagName (){
-        OrangeHomePage.getElementByTagName();
+    @When("^Check by tagName div and something$")
+    public static void checkByTagName() {
+        List<WebElement> elementsTagName = OrangeHomePage.getElementByTagName();
+        for (WebElement oneElement : elementsTagName) {
+            System.out.println(oneElement.getText());
+        }
+    }
+
+    @When("^Check by cssSelector and something$")
+    public static void checkByCssSelector() {
+        OrangeHomePage.getElementByCssSelector();
     }
 }

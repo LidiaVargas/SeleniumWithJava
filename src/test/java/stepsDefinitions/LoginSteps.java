@@ -5,6 +5,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.LoginPage;
 import scripts.Commons;
+import scripts.JsonReaderWithGson;
 import scripts.Utils;
 
 import java.awt.*;
@@ -22,6 +23,14 @@ public class LoginSteps {
     public void enterUserAndPass (String user, String pass){
         LoginPage.enterUser(user);
         LoginPage.enterPass(pass);
+    }
+   //este método utiliza datos del archivo json guardado en resources / propierties
+    @When("^The user login with json user: '(.*)'$")
+    public void enterUserAndPassJson (String user) {
+        String username = JsonReaderWithGson.getString("users", user, "username");
+        String password = JsonReaderWithGson.getString("users", user, "pass");
+        LoginPage.enterUser(username);
+        LoginPage.enterPass(password);
     }
 
     @When("^The user click on login button$")

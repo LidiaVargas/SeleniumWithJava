@@ -1,0 +1,24 @@
+{
+
+  "ErrorMessages": {
+    "LOCKED_USER_ERROR_MESSAGE": "Epic sadface: Sorry, this user has been locked out.",
+    "EMPTY_USERNAME_FIELD": "Epic sadface: Username is required",
+    "EMPTY_PASSWORD_FIELD": "Epic sadface: Password is required"
+  },
+  "users": {
+    "standard_user": {
+      "username": "standard_user",
+      "pass": "secret_sauce"
+    },
+    "locked_user": {
+      "username": "locked_out_user",
+      "pass": "secret_sauce"
+    }
+  },
+  "featureFlags": {
+    "checkErrorMessages": true
+  },
+  "driverConfig": {
+    "wait": 5
+  }
+}

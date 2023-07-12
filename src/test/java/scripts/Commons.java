@@ -81,6 +81,15 @@ public class Commons extends BasePage {
         }
     }
 
+    public static WebElement findElementVisibleByCssSelector(String cssSelector){
+        try {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cssSelector)));
+        } catch (Exception e){
+            Assert.fail("fail to find element: "+ cssSelector);
+            return null;
+        }
+    }
+
     public static WebElement findElementByXpath(String xpath){
         try {
             return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
@@ -113,6 +122,7 @@ public class Commons extends BasePage {
     //CLICK
     public static void click (WebElement element){
         try{
+            wait.until(ExpectedConditions.elementToBeClickable(element));
             element.click();
         }catch (Exception e){
             Assert.fail("fail to click on element: "+ element);

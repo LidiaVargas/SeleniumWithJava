@@ -6,7 +6,8 @@ Feature: orange side panel
     Given The user visit the orange page: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
     When The orange user type username: 'Admin' and password: 'admin123'
     And Check by id=app
-    And Check by tagName div who has img first child
+    And Check by tagName div and something
+    And Check by cssSelector and something
     Then The orange user click on login button
 
   @login_Again @sidePanel

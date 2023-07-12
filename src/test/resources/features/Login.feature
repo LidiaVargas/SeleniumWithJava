@@ -11,6 +11,16 @@ Feature: saucedemo login
     And The user click on burguer button
     Then The user is logged
 
+
+  #este escenario utiliza datos del archivo json guardado en resources / propierties
+  @json
+  Scenario: The user is logged and successful json
+    When The user login with json user: 'standard_user'
+    And The user click on login button
+    And The user click on burguer button
+    Then The user is logged
+
+
   @unsuccessful
   Scenario Outline: Login with wrong user and pass
     When The user type username: '<user>' and password: '<pass>'

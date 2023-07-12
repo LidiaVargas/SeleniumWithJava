@@ -1,6 +1,9 @@
 package pages;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import scripts.Commons;
+
+import java.util.List;
 
 
 public class OrangeHomePage {
@@ -9,7 +12,8 @@ public class OrangeHomePage {
     private static final String LI_ELEMENTS_SIDE_PANEL = "//ul[@class='oxd-main-menu']/li[./a/span/text()='%s']";
     private static final String ELEMENT_CLASS_CSS = "oxd-input";
     private static final String ELEMENT_ID = "app";
-    private static final String ELEMENT_TAGNAME = "div";
+    private static final String ELEMENT_TAGNAME = "body";
+    private static final String ELEMENT_CSS_SELECTOR = ".orangehrm-login-container";
 
 
 
@@ -28,9 +32,14 @@ public class OrangeHomePage {
            return elementId;
     }
 
-    public static WebElement getElementByTagName () {
-        WebElement elementagTagName = Commons.findElementVisibleByTagName(ELEMENT_TAGNAME);
+    public static List<WebElement> getElementByTagName () {
+        List<WebElement> elementagTagName = Commons.findElementVisibleByTagName(ELEMENT_TAGNAME).findElements(By.tagName("div"));
         return elementagTagName;
+    }
+
+    public static WebElement getElementByCssSelector () {
+        WebElement cssSelector = Commons.findElementVisibleByCssSelector(ELEMENT_CSS_SELECTOR);
+        return cssSelector;
     }
 
     public static boolean lookForHamburger() {
