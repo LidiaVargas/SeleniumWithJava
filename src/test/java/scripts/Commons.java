@@ -53,6 +53,34 @@ public class Commons extends BasePage {
         }
     }
 
+    public static WebElement findElementVisibleByClassName(String css){
+        try {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.className(css)));
+        } catch (Exception e){
+            Assert.fail("fail to find element: "+ css);
+            return null;
+        }
+    }
+
+
+    public static WebElement findElementVisibleById(String id){
+        try {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(id)));
+        } catch (Exception e){
+            Assert.fail("fail to find element: "+ id);
+            return null;
+        }
+    }
+
+    public static WebElement findElementVisibleByTagName(String tagName){
+        try {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName(tagName)));
+        } catch (Exception e){
+            Assert.fail("fail to find element: "+ tagName);
+            return null;
+        }
+    }
+
     public static WebElement findElementByXpath(String xpath){
         try {
             return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));

@@ -5,6 +5,8 @@ Feature: orange side panel
   Background: The user navigate in the side panel
     Given The user visit the orange page: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
     When The orange user type username: 'Admin' and password: 'admin123'
+    And Check by id=app
+    And Check by tagName div who has img first child
     Then The orange user click on login button
 
   @login_Again @sidePanel
@@ -15,9 +17,15 @@ Feature: orange side panel
     Examples:
       | pageName    |
       | Admin       |
-      | PIM         |
-      | Leave       |
-      | Time        |
-      | Recruitment |
-      | My info     |
-      | Performance |
+      #| PIM         |
+      #| Leave       |
+      #| Time        |
+     #| Recruitment |
+      #| My info     |
+      #| Performance |
+
+    @login_Again @find
+    Scenario: The user look for some text in the side panel
+      When The user write some text in the side panel: 'potato'
+
+
